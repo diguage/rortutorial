@@ -7,7 +7,7 @@ describe "StaticPages" do
   describe "Home page" do
   	it "should have the content 'Sample App'" do
       visit '/static_pages/home'
-      page.should have_content('Sample App')
+      page.should have_selector('h1', :text => 'Sample App')
     end
 
     it "should have the right title 'Home'" do
@@ -19,7 +19,7 @@ describe "StaticPages" do
   describe "Help page" do
     it "should have the content 'Help'" do
       visit '/static_pages/help'
-      page.should have_content('Help')
+      page.should have_selector('h1', :text => 'Help')
     end
 
     it "should have the title 'Help'" do
@@ -31,7 +31,7 @@ describe "StaticPages" do
   describe "About page" do
     it "should have the content 'About Us'" do
       visit '/static_pages/about'
-      page.should have_content('About Us')
+      page.should have_selector('h1', :text => 'About Us')
     end
 
     it "should have the title 'About Us'" do
@@ -43,7 +43,7 @@ describe "StaticPages" do
   describe "Contact" do
     it "should have the content 'Contact'" do
       visit '/static_pages/contact'
-      page.should have_content('Contact')
+      page.should have_selector('h1', :text => 'Contact')
     end
 
     it "should have the title 'Contact'" do
