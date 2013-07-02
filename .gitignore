@@ -18,7 +18,7 @@
 *.sassc
 .sass-cache
 capybara-*.html
-.rspec
+# .rspec
 /.bundle
 /vendor/bundle
 /log/*
