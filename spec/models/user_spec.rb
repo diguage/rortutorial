@@ -93,7 +93,7 @@ describe User do
 
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
-    it { should be_valid }
+    it { should_not be_valid }
   end
 
   describe "return value of authenticate method" do
