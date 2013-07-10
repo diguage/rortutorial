@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  # before_filter :forbid_signed_user, only:[:new, :create] # have some error
+
   def new
   end
 
