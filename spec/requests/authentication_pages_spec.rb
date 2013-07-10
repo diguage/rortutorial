@@ -86,6 +86,13 @@ describe "AuthenticationPages" do
           end
         end
       end
+
+      describe "no Profile & Settings link" do 
+        before { visit root_path }
+
+        it { should_not have_link('Profile', href: user_path(user)) }
+        it { should_not have_link('Settings', href: edit_user_path(user))}
+      end
     end
 
     describe "as wrong user" do 
