@@ -2,13 +2,9 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :correct_user, only:[:edit, :update]
   before_filter :admin_user, only: :destroy
+  before_filter :forbid_signed_user, only:[:new, :create]
 
   def new
-    if signed_in?  # if signed in, then redirect to root path
-      redirect_to root_path
-      return      
-    end
-
     @user = User.new
   end
 
@@ -17,11 +13,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    if signed_in?  # if signed in, then redirect to root path
-      redirect_to root_path
-      return      
-    end
-
     @user = User.new(params[:user])  	
 
     if @user.save

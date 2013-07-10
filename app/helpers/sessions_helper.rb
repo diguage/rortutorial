@@ -33,4 +33,11 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.fullpath
   end
+
+  def forbid_signed_user  # 这是我添加的跳转辅助方法
+    if signed_in?
+      redirect_to root_path
+      return
+    end
+  end
 end

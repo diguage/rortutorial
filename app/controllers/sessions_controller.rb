@@ -1,18 +1,10 @@
 class SessionsController < ApplicationController
+  # before_filter :forbid_signed_user, only:[:new, :create] # have some error
+
   def new
-    if signed_in?  # if signed in, then redirect to root path
-      redirect_to root_path
-      return      
-    end
-    
   end
 
   def create
-    if signed_in?  # if signed in, then redirect to root path
-      redirect_to root_path
-      return      
-    end
-
     user = User.find_by_email(params[:session][:email]) 	
     if user && user.authenticate(params[:session][:password])
       sign_in user
