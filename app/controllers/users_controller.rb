@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   before_filter :admin_user, only: :destroy
 
   def new
+    if signed_in?  # if signed in, then redirect to root path
+      redirect_to root_path
+      return      
+    end
+
     @user = User.new
   end
 
@@ -28,6 +33,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if signed_in?  # if signed in, then redirect to root path
+      redirect_to root_path
+      return      
+    end
+    
     # @user = User.find(params[:id]) # found by correct_user method
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
