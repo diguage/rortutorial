@@ -17,6 +17,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    if signed_in?  # if signed in, then redirect to root path
+      redirect_to root_path
+      return      
+    end
+
     @user = User.new(params[:user])  	
 
     if @user.save
@@ -32,12 +37,7 @@ class UsersController < ApplicationController
     # @user = User.find(params[:id]) # found by correct_user method
   end
 
-  def update
-    if signed_in?  # if signed in, then redirect to root path
-      redirect_to root_path
-      return      
-    end
-    
+  def update    
     # @user = User.find(params[:id]) # found by correct_user method
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
