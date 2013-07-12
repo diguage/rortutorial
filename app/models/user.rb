@@ -34,6 +34,14 @@ class User < ActiveRecord::Base
     Micropost.where("user_id = ?", id)
   end
 
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user)    
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
   private
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64      
