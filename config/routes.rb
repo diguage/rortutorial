@@ -4,8 +4,9 @@ Rtutorial::Application.routes.draw do
       get :following, :followers
     end
   end
-  resources :sessions,   only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
+  resources :sessions,     only: [:new, :create, :destroy]
+  resources :microposts,   only: [:create, :destroy]
+  resources :relationshis, only: [:create, :destroy]
 
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
