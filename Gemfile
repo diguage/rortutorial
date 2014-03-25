@@ -53,8 +53,10 @@ group :test do
     gem 'libnotify', '0.5.9'
   else   #Mac?
     gem 'capybara', '1.1.2'
-    gem 'rb-fsevent', '0.9.1', :require => false
-    gem 'growl', '1.0.3'
+    # gem 'rb-fsevent', '0.9.1', :require => false
+    # gem 'growl', '1.0.3'
+    gem 'rb-inotify', '0.8.8'
+    gem 'libnotify', '0.5.9'
   end
   
   gem 'factory_girl_rails', '4.1.0'  
